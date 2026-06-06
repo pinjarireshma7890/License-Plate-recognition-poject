@@ -1,0 +1,72 @@
+License Plate Recognition System
+Abstract
+License Plate Recognition (LPR) is an image-processing application used to automatically detect and recognize vehicle registration numbers from images or videos. This system helps in traffic monitoring, parking management, toll collection, and security surveillance. The project uses computer vision and Optical Character Recognition (OCR) techniques to extract text from vehicle number plates.
+Introduction
+With the increase in the number of vehicles, manual monitoring of license plates has become difficult. License Plate Recognition automates this process by detecting the number plate from an image and converting the plate characters into digital text. The system improves accuracy and reduces human effort.
+Objectives
+Detect vehicle number plates automatically.
+Extract characters from the detected plate.
+Convert image data into readable text.
+Improve traffic and parking management systems.
+Software Requirements
+Python 3.x
+OpenCV
+EasyOCR
+NumPy
+Hardware Requirements
+Computer/Laptop
+Webcam or Camera (optional)
+Minimum 4 GB RAM
+Methodology
+Step 1: Image Acquisition
+Capture or upload a vehicle image containing a license plate.
+Step 2: Preprocessing
+Convert the image into a suitable format using image processing techniques.
+Step 3: Plate Detection
+Locate the number plate region from the vehicle image.
+Step 4: Character Recognition
+Apply OCR to identify and extract the characters present on the license plate.
+Step 5: Output Display
+Display the detected license plate number on the screen.import cv2
+import easyocr
+
+# Initialize OCR Reader
+reader = easyocr.Reader(['en'])
+
+# Load Image
+image = cv2.imread('car.jpg')
+
+# Read Text
+results = reader.readtext(image)
+
+# Display Detected Text
+for result in results:
+    print("Detected Plate Number:", result[1])
+
+cv2.imshow("Vehicle Image", image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()Applications
+Traffic Monitoring
+Toll Booth Automation
+Smart Parking Systems
+Security and Surveillance
+Vehicle Tracking
+Advantages
+Reduces manual work.
+Fast and accurate recognition.
+Improves security.
+Easy vehicle identification.
+Future Enhancements
+Real-time video processing.
+Cloud-based monitoring.
+Integration with traffic management systems.
+Multi-language plate recognition.
+Conclusion
+The License Plate Recognition System is an efficient solution for automatically identifying vehicle registration numbers. Using OpenCV and OCR technology, the system can detect and recognize license plates accurately, making it useful for smart transportation and security applications.
+References
+OpenCV Documentation
+EasyOCR Documentation
+Python Official Documentation
+Research Papers on License Plate Recognition Systems
+Submitted By: Pinjari Reshma
+Project Title: License Plate Recognition System
