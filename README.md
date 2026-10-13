@@ -1,13 +1,16 @@
-# License Plate Recognition System
+# Car License Plate Recognition System
 
 ## Overview
-The License Plate Recognition (LPR) System is a computer vision project that automatically detects and recognizes vehicle license plate numbers from images. It uses OpenCV for image processing and EasyOCR for character recognition.
+A Python-based computer vision project that attempts to detect vehicle license plate regions from images and recognize the text using Optical Character Recognition (OCR).
+
+This project uses OpenCV for image processing and EasyOCR for text recognition.
 
 ## Features
-- Detects text from vehicle images
-- Extracts license plate numbers automatically
-- Displays recognized plate numbers
-- Simple and easy to implement
+- Loads a vehicle image
+- Converts the image to grayscale and reduces noise
+- Detects edges and searches for possible license plate regions
+- Enhances the selected region for OCR
+- Prints recognized text from original and enhanced plate crops
 
 ## Technologies Used
 - Python
@@ -15,42 +18,44 @@ The License Plate Recognition (LPR) System is a computer vision project that aut
 - EasyOCR
 - NumPy
 
-## Requirements
-
-Install the required libraries:
-
-pip install opencv-python
-pip install easyocr
-pip install numpy
-
 ## Project Structure
-
-License-Plate-Recognition/
-│
-├── car.jpg
+```text
+License-Plate-recognition-poject/
+├── car.jpeg
 ├── lpr.py
+├── project6.python
 └── README.md
+```
 
-## Code
+## Installation
+Install the required Python libraries:
 
-```python
-import cv2
-import easyocr
+```bash
+pip install opencv-python easyocr numpy
+```
 
-# Initialize OCR Reader
-reader = easyocr.Reader(['en'])
+## How to Run
+1. Keep `car.jpeg` in the same folder as `lpr.py`.
+2. Open Command Prompt in the project folder.
+3. Run:
 
-# Load vehicle image
-image = cv2.imread('car.jpg')
+```bash
+python lpr.py
 
-# Detect and read text
-results = reader.readtext(image)
 
-# Print detected text
-for result in results:
-    print("Detected Plate Number:", result[1])
+The program searches for a possible plate region and prints OCR results for the original and enhanced image crops.
 
-# Display image
-cv2.imshow("Vehicle Image", image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+## Limitations
+- Uses contour-based heuristics for plate detection.
+- Results depend on image quality, lighting, and viewing angle.
+- Similar characters, such as `S` and `5`, may be confused.
+- This is a beginner-level prototype and may not work reliably for every image.
+
+## Future Improvements
+- Improve plate detection and OCR accuracy
+- Test with different vehicle images
+- Display the detected plate region
+- Evaluate accuracy using labeled images
+
+## Author
+Developed as a Python computer vision project.
